@@ -17,20 +17,67 @@ class ProfilePage extends StatelessWidget {
             style: TextStyle(
               color: Colors.black45,
               letterSpacing: 2.0,
-              fontSize: 16.5,
+              fontSize: 18.0,
             ),
           ),
           Spacer(),
           Text(
             value,
             style: TextStyle(
-              color: Colors.black45,
-              letterSpacing: 2.0,
-              fontSize: 16.5,
+              color: Colors.grey[800],
+              fontSize: 18,
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget skills(value) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.lightBlue[200],
+            radius: 6.0,
+          ),
+          SizedBox(width: 10),
+          Text(
+            value,
+            style: TextStyle(
+              color: Colors.black87,
+              fontWeight: FontWeight.w400,
+              fontSize: 20.0,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget headers(title) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      width: double.infinity,
+      color: Colors.grey[400],
+      child: Text(
+        title,
+        style: TextStyle(
+          color: Colors.blueGrey[800],
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Comfortaa',
+        ),
+      ),
+    );
+  }
+
+  Widget divider() {
+    return Divider(
+      height: 50.0,
+      color: Colors.lightBlue[200],
+      thickness: 2.0,
     );
   }
 
@@ -43,6 +90,7 @@ class ProfilePage extends StatelessWidget {
             SliverAppBar(
               title: Text('Profile'),
               pinned: true,
+              centerTitle: true,
               expandedHeight: 350.0,
               floating: true,
               flexibleSpace: FlexibleSpaceBar(
@@ -71,55 +119,26 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 25.0),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
-                        width: double.infinity,
-                        color: Colors.grey[400],
-                        child: Text(
-                          'Contact',
-                          style: TextStyle(
-                            color: Colors.blueGrey[800],
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Comfortaa',
-                          ),
-                        ),
-                      ),
+                      headers('Contact'),
                       SizedBox(height: 15.0),
                       Container(
                         width: double.infinity,
                         child: Column(
                           children: [
-                            customRow(Icons.contact_mail, 'gcghj', 'fthvn'),
-                            customRow(Icons.contact_mail, 'gcghj', 'fthvn'),
-                            customRow(Icons.contact_mail, 'gcghj', 'fthvn'),
+                            customRow(Icons.account_box, 'Student Number:',
+                                '1913119'),
+                            customRow(
+                                Icons.email, 'Email:', 'apra.jain01@gmail.com'),
+                            customRow(Icons.phone_android, 'Mobile Number:',
+                                '+918604601091'),
                           ],
                         ),
                       ),
-                      Divider(
-                        height: 50.0,
-                        thickness: 2.0,
-                        color: Colors.lightBlue[200],
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
-                        width: double.infinity,
-                        color: Colors.grey[400],
-                        child: Text(
-                          'Description',
-                          style: TextStyle(
-                            color: Colors.blueGrey[800],
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Comfortaa',
-                          ),
-                        ),
-                      ),
+                      divider(),
+                      headers('Description'),
                       SizedBox(height: 15.0),
                       Text(
-                        'Motivated and efficient. Hard worker, goal-oriented and eager to learn.',
+                        'Motivated and efficient. Diligent, goal-oriented and eager to learn.',
                         style: TextStyle(
                           color: Colors.black87,
                           fontWeight: FontWeight.w400,
@@ -127,26 +146,8 @@ class ProfilePage extends StatelessWidget {
                           letterSpacing: 1.0,
                         ),
                       ),
-                      Divider(
-                        height: 50.0,
-                        color: Colors.lightBlue[200],
-                        thickness: 2.0,
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
-                        width: double.infinity,
-                        color: Colors.grey[400],
-                        child: Text(
-                          'Education',
-                          style: TextStyle(
-                            color: Colors.blueGrey[800],
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Comfortaa',
-                          ),
-                        ),
-                      ),
+                      divider(),
+                      headers('Education'),
                       SizedBox(height: 15.0),
                       Row(
                         children: <Widget>[
@@ -165,7 +166,7 @@ class ProfilePage extends StatelessWidget {
                           Expanded(
                             flex: 2,
                             child: Text(
-                              'Bachelors in Technology from Ajay Kumar Garg',
+                              'Bachelor of Technology from Ajay Kumar Garg',
                               style: TextStyle(
                                 color: Colors.black87,
                                 fontWeight: FontWeight.w400,
@@ -175,71 +176,13 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Divider(
-                        height: 50.0,
-                        color: Colors.lightBlue[200],
-                        thickness: 2.0,
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
-                        width: double.infinity,
-                        color: Colors.grey[400],
-                        child: Text(
-                          'Skills',
-                          style: TextStyle(
-                            color: Colors.blueGrey[800],
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Comfortaa',
-                          ),
-                        ),
-                      ),
+                      divider(),
+                      headers('Skills'),
                       SizedBox(height: 18.0),
-                      ListTile(
-                        leading: MyBullet(),
-                        title: Text(
-                          'C Language',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                      ListTile(
-                        leading: MyBullet(),
-                        title: Text(
-                          'Java',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                      ),
-                      ListTile(
-                        leading: MyBullet(),
-                        title: Text(
-                          'HTML/CSS',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                      ),
-                      ListTile(
-                        leading: MyBullet(),
-                        title: Text(
-                          'Flutter',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                      ),
+                      skills('C language'),
+                      skills('Java'),
+                      skills('Flutter'),
+                      //skills('HTML/CSS'),
                       Divider(
                         height: 50.0,
                         color: Colors.blueGrey[300],
@@ -256,16 +199,6 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class MyBullet extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: Colors.lightBlue[200],
-      radius: 6.0,
     );
   }
 }
